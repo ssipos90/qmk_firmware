@@ -53,3 +53,10 @@
 
 /* VIA related config */
 #define VIA_EEPROM_LAYOUT_OPTIONS_SIZE 2
+
+/* ssipos90 */
+#define LEADER_TIMEOUT 500
+#define LEADER_PER_KEY_TIMING
+#define MOUSEKEY_INTERVAL 16
+#define MOUSEKEY_MAX_SPEED 5
+#define MOUSEKEY_DEILAY 100
