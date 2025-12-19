@@ -2,15 +2,18 @@
 
 #define _QRTY 0
 #define _DVRK 1
-#define _NAVI 2
-#define _NMPD 3
-#define _CNFG 4
+#define _CLMK 2
+#define _CLSY 3
+#define _NAVI 4
+#define _NMPD 5
+#define _CNFG 6
 
 #define MO_NMPD MO(_NMPD)
 #define MO_NAVI MO(_NAVI)
 #define MO_CNFG MO(_CNFG)
 #define DF_QRTY DF(_QRTY)
 #define DF_DVRK DF(_DVRK)
+#define DF_CLMK DF(_CLMK)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QRTY] = LAYOUT(
@@ -25,6 +28,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_LBRC, KC_RBRC, KC_BSLS,
         KC_LGUI,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,           KC_ENT,
         KC_LSFT, XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT, XXXXXXX,
+        KC_LCTL, MO_NMPD, KC_LALT,                   KC_BSPC, MO_NAVI,  KC_SPC,          KC_RALT, KC_RCTL, MO_CNFG, KC_SCRL,  KC_ENT
+    ),
+    [_CLMK] = LAYOUT(
+        QK_GESC,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,  KC_EQL,  KC_GRV,  _______,
+        KC_TAB,     KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y, KC_SCLN, KC_LBRC, KC_RBRC, KC_BSLS,
+        KC_LGUI,    KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O, KC_QUOT,           KC_ENT,
+        KC_LSFT, XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT, XXXXXXX,
         KC_LCTL, MO_NMPD, KC_LALT,                   KC_BSPC, MO_NAVI,  KC_SPC,          KC_RALT, KC_RCTL, MO_CNFG, KC_SCRL,  KC_ENT
     ),
     [_NAVI] = LAYOUT(
@@ -42,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______,                   _______, _______, _______,          _______, _______, _______, _______, _______
     ),
     [_CNFG] = LAYOUT(
-        XXXXXXX, DF_QRTY, DF_DVRK, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MUTE, KC_VOLD, KC_VOLU, XXXXXXX, XXXXXXX,
+        XXXXXXX, DF_QRTY, DF_DVRK, DF_CLMK, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MUTE, KC_VOLD, KC_VOLU, XXXXXXX, XXXXXXX,
         XXXXXXX, RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR, KC_MPLY, KC_MPRV, KC_MNXT,  QK_RBT,
         KC_CAPS, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX,
         XXXXXXX, BL_DOWN, BL_TOGG,   BL_UP, BL_STEP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MRWD, KC_MFFD, XXXXXXX, XXXXXXX, XXXXXXX,
